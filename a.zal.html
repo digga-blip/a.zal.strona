@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <style>
+    /*STYL CIAŁA*/
+    body{
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        background-color: #628141;
+    }
+    header{
+        background-color: #8BAE66;
+        padding: 10px;
+        text-align: center;
+    }
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 0 20px;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    nav ul li a:hover {
+        text-decoration: underline;
+    }
+    /* JUMPSCARE OBRAZ */
+#scareImg {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 600px;
+    height: 400px;}
+
+   
+
+  </style>
+</head>
+<body>
+    <header>
+        <h1 style="text-align:center;">Moja Strona</h1>
+        <nav>
+            <ul>
+                <li><a href="a.zal.html #home">Start</a></li>
+                <li><a href="jajo2.html">Galeria</a></li>
+                
+            </ul>
+        </nav>
+
+    </header>
+<!-- TEKST, po kliknięciu uruchamia jumpscare -->
+<section class="text" id="jumpscareText">
+    Józek
+</section>
+
+<!-- DŹWIĘK JUMPSCARE -->
+<audio id="scareSound" src="sounden/i-hate-ninjas.mp3"></audio>
+
+<!-- OBRAZ JUMPSCARE -->
+<img id="scareImg" src="zdięcien/józek.jpg" alt="Jumpscare">
+
+<script>
+const text = document.getElementById('jumpscareText');
+const scareImage = document.getElementById('scareImg');
+const scareSound = document.getElementById('scareSound');
+
+text.addEventListener('click', () => {
+    // pokaż jumpscare
+    scareImage.style.display = 'block';
+    // odtwarzanie dźwięku w loopie
+    scareSound.loop = true;
+    scareSound.play();
+
+    // kliknięcie w jumpscare wyłącza go
+    scareImage.addEventListener('click', () => {
+        scareImage.style.display = 'none';
+        scareSound.pause();
+        scareSound.currentTime = 0;
+    });
+});
+</script>
+
+</body>
+</html>
